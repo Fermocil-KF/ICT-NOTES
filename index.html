@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Fundamentals: Data Types and Numbers</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
+    <style>
+        /* Basic CSS for a clean look */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .calculator-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px dashed #333;
+            border-radius: 5px;
+        }
+        #output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: green;
+        }
+        /* Specific styles for string table */
+        .string-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .string-table th, .string-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .string-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐍 Python Fundamentals: Data Types and Numbers</h1>
+    </header>
+    <div class="container">
+
+        <h2>Data Types in Python</h2>
+        <p>In Python, all data is represented by <strong>objects</strong>, each having an <strong>Identity (ID)</strong>, <strong>Type</strong>, and <strong>Value</strong>.</p>
+        
+        <ul>
+            <li><strong>Integer (<code>int</code>)</strong>: Whole numbers (e.g., <code>10</code>, <code>-5</code>).</li>
+            <li><strong>Floating Point (<code>float</code>)</strong>: Numbers with decimals (e.g., <code>3.14</code>, <code>-0.5</code>).</li>
+            <li><strong>Boolean (<code>bool</code>)</strong>: Either <code>True</code> or <code>False</code>.</li>
+            <li><strong>String (<code>str</code>)</strong>: Sequence of characters (e.g., <code>"hello"</code>).</li>
+            <li><strong>List (<code>list</code>)</strong>: Ordered, <strong>mutable</strong> collection of items (e.g., <code>[1, 'a']</code>).</li>
+            <li><strong>Tuple (<code>tuple</code>)</strong>: Ordered, <strong>immutable</strong> sequence of items (e.g., <code>(4, 18)</code>).</li>
+            <li><strong>Dictionary (<code>dict</code>)</strong>: Ordered collection of key/value pairs (e.g., <code>{'key': 'value'}</code>).</li>
+        </ul>
+        <p><strong>Mutability:</strong> Refers to whether an object's value can be changed after creation (e.g., Lists are mutable; Tuples are immutable).</p>
+
+        <hr>
+
+        <h2>Working with Numbers & Operators</h2>
+        <p>Python follows <strong>PEMDAS</strong> for order of operations.</p>
+        <pre>
+Addition:        +
+Subtraction:     -
+Multiplication:  *
+Exponentiation:  **
+Division (float): /  (e.g., 5 / 2 = 2.5)
+Floor Division:  // (e.g., 5 // 2 = 2)
+Modulo/Remainder: %  (e.g., 5 % 2 = 1)
+        </pre>
+        <p><strong>Type Conversion:</strong> Use <code>int()</code>, <code>float()</code>, or <code>bool()</code> to convert between types. Operations between a <code>float</code> and an <code>int</code> result in a <code>float</code>.</p>
+
+        <hr>
+
+        <h2>Strings (<code>str</code>)</h2>
+        <p>Strings are composed of a <strong>sequence of characters</strong>. They are specified by enclosing characters in <strong>single (<code>'</code>)</strong> or <strong>double (<code>"</code>)</strong> quotation marks. You can also specify <strong>multi-line strings</strong> using three quotation marks (e.g., <code>"""..."""</code>).</p>
+
+        <h3>String Operations and Indexing</h3>
+        <ul>
+            <li><strong>Concatenation & Multiplication</strong>: Use the `+` operator to join strings together. You can multiply a string using the `*` operator to repeat it (e.g., `"Hi" * 3` gives `"HiHiHi"`).</li>
+            <li>Offset/Indexing: The position of a character is called its offset. Python uses **zero-based indexing** (starts counting from 0).
+                <ul>
+                    <li><strong>Positive Indexing</strong>: Counts from left to right (0, 1, 2, ...).</li>
+                    <li>Negative Indexing: Counts from right to left, where `-1` is the last character.</li>
+                </ul>
+            </li>
+            <li>Length: The built-in `len()` function returns the number of characters in the string as an integer.</li>
+        </ul>
+
+        <h3>Escape Characters</h3>
+        <p>Escape characters, signaled by a backslash (`\`), instruct Python to treat the following character specially, not as a literal symbol.</p>
+        <table class="string-table">
+            <thead>
+                <tr>
+                    <th>Character</th>
+                    <th>Meaning</th>
+                    <th>Code Example</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>\n</code></td>
+                    <td>New line</td>
+                    <td><code>"Hello\nWorld"</code></td>
+                    <td>
+<pre>Hello
+World</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>\r</code></td>
+                    <td>Carriage return</td>
+                    <td><code>"Hello\rWorld"</code></td>
+                    <td><pre>World</pre></td>
+                </tr>
+                <tr>
+                    <td><code>\t</code></td>
+                    <td>Tab</td>
+                    <td><code>"Hello\tWorld"</code></td>
+                    <td><pre>Hello   World</pre></td>
+                </tr>
+                <tr>
+                    <td><code>\'</code></td>
+                    <td>Single quote</td>
+                    <td><code>'It\'s sunny'</code></td>
+                    <td><pre>It's sunny</pre></td>
+                </tr>
+                <tr>
+                    <td><code>\\</code></td>
+                    <td>Black slash</td>
+                    <td><code>"C:\\Users\\Name"</code></td>
+                    <td><pre>C:\Users\Name</pre></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>String Methods</h3>
+        <ul>
+            <li>Strip Method: Removes unwanted characters (by default, whitespace) from the start and end of a string.
+                <ul>
+                    <li>`.strip()`: Strips whitespace on both sides.</li>
+                    <li>`.lstrip()`: Strips whitespace on the left side.</li>
+                    <li>`.rstrip()`: Strips whitespace on the right side.</li>
+                </ul>
+            </li>
+            <li>Split and Join Methods:
+                <ul>
+                    <li>`.split()`: Converts a string into a **list** of substrings based on a delimiter (defaults to whitespace).</li>
+                    <li>`.join()`: Combines the items of a list back into a single string, using the string on which the method is called as the separator.</li>
+                </ul>
+            </li>
+            <li>Replace Method: The `.replace(old, new)` method replaces all occurrences of the `old` substring with the `new` substring inside the string.</li>
+            <li>Case Methods:
+                <ul>
+                    <li>`.capitalize()`: Capitalizes the first character of the string, and lowercases the rest.</li>
+                    <li>`.title()`: Capitalizes the first letter of each word in the string.</li>
+                    <li>`.upper()`: Converts all letters in the string to uppercase.</li>
+                    <li>`.lower()`: Converts all letters in the string to lowercase.</li>
+                    <li>`.swapcase()`: Changes uppercase letters to lowercase, and lowercase letters to uppercase.</li>
+                </ul>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
